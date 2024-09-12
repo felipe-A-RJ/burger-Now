@@ -113,7 +113,7 @@ function redirectToWhatsApp() {
     orderMessage += `\nMétodo de Pagamento: ${paymentMethod}`;
 
     // Solicita o endereço de entrega ao usuário
-    const address = prompt("Informe o endereço de entrega:");
+    const address = prompt("Informe o endereço de entrega completo e referencia se tiver:");
 
     if (!address) {
         alert('Por favor, informe um endereço de entrega.');
