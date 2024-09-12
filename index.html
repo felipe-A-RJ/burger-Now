@@ -44,7 +44,6 @@
                     <span>R$ 25,00</span>
                     <button onclick="addToCart('Bacon Artesanal', 25)">Adicionar ao carrinho</button>
                 </div>
-                <!-- Adicione mais hambúrgueres artesanais aqui -->
             </div>
         </div>
 
@@ -64,7 +63,6 @@
                     <span>R$ 18,00</span>
                     <button onclick="addToCart('Burger Bacon', 18)">Adicionar ao carrinho</button>
                 </div>
-                <!-- Adicione mais hambúrgueres normais aqui -->
             </div>
         </div>
     </section>
@@ -73,7 +71,10 @@
         <h2>Seu Carrinho</h2>
         <ul id="cart-items"></ul>
         <p id="cart-total">Total: R$ 0,00</p>
-        <p class="delivery-note">*Consulte a taxa de entrega</p>
+        
+        
+        <!-- Botão Peça Agora dentro do carrinho -->
+        <button class="order-button" onclick="redirectToWhatsApp()">Peça Agora</button>
     </section>
     
     <section id="about" class="about-section">

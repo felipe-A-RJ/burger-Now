@@ -5,6 +5,7 @@ function orderNow() {
 
 // Array para armazenar os itens do carrinho
 let cart = [];
+const deliveryFee = 5.00; // Taxa de entrega fixa
 
 // Função para adicionar itens ao carrinho
 function addToCart(itemName, itemPrice) {
@@ -47,8 +48,11 @@ function updateCartDisplay() {
         cartItemsContainer.appendChild(li);
     });
 
+    // Adiciona a taxa de entrega ao total
+    total += deliveryFee;
+
     // Atualizar o total do carrinho
-    cartTotalContainer.textContent = `Total: R$ ${total.toFixed(2)}`;
+    cartTotalContainer.textContent = `Total: R$ ${total.toFixed(2)} (incluindo R$ ${deliveryFee.toFixed(2)} de taxa de entrega)`;
 
     // Adicionar mensagem sobre taxa de entrega
     const deliveryMessage = document.createElement('p');
@@ -83,10 +87,19 @@ function increaseQuantity(index) {
 // Função para redirecionar para o WhatsApp com o pedido, escolha de pagamento, endereço e nome
 function redirectToWhatsApp() {
     let orderMessage = "Olá, gostaria de fazer o pedido dos seguintes itens:\n";
+    let total = 0;
 
     cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
         orderMessage += `- ${item.name} (Quantidade: ${item.quantity}) - R$ ${item.price.toFixed(2)} cada\n`;
     });
+
+    // Adiciona a taxa de entrega ao total
+    total += deliveryFee;
+
+    // Adiciona a taxa de entrega à mensagem
+    orderMessage += `\nTaxa de entrega: R$ ${deliveryFee.toFixed(2)}`;
 
     // Solicita o método de pagamento ao usuário
     const paymentMethod = prompt("Escolha o meio de pagamento: Dinheiro, Cartão de Crédito, Débito ou PIX");
@@ -111,15 +124,19 @@ function redirectToWhatsApp() {
     orderMessage += `\nEndereço de Entrega: ${address}`;
 
     // Solicita o nome do cliente
-    const customerName = prompt("Por sfavor, informe seu nome:");
+    const customerName = prompt("Por favor, informe seu nome:");
 
-    if (!customerName) {
+    // Verificação atualizada para o nome do cliente
+    if (!customerName || customerName.trim() === "") {
         alert('Por favor, informe seu nome.');
         return;
     }
 
     // Adiciona o nome do cliente à mensagem do pedido
     orderMessage += `\nNome do Cliente: ${customerName}`;
+
+    // Adiciona o total ao final da mensagem
+    orderMessage += `\n\nTotal do Pedido: R$ ${total.toFixed(2)}`;
 
     const phoneNumber = "5521981268012"; // Substitua pelo seu número
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderMessage)}`;
