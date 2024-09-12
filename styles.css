@@ -5,7 +5,6 @@ body {
     padding: 0;
 }
 
-
 header {
     background-color: #333;
     color: #fff;
@@ -26,10 +25,7 @@ nav {
     width: auto; /* Mantém a proporção da imagem */
     border-radius: 50%; /* Torna a imagem redonda */
     object-fit: cover; /* Garante que a imagem se ajuste corretamente ao contêiner redondo */
-
 }
-
-
 
 .menu {
     list-style: none;
@@ -55,8 +51,6 @@ nav {
     text-align: center;
     padding: 100px 20px;
     height: 600px;
-    
-    
 }
 
 .menu-section, .about-section, .contact-section {
@@ -88,6 +82,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
 .cart-section {
     padding: 20px;
     border: 1px solid #ddd;
@@ -100,6 +95,7 @@ footer {
 .cart-section h2 {
     text-align: center;
 }
+
 .order-button {
     background-color: #e63946;
     color: #fff;
@@ -115,4 +111,80 @@ footer {
 
 .order-button:hover {
     background-color: #d62839;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .banner {
+        padding: 60px 20px;
+        height: auto;
+    }
+
+    .logo-img {
+        height: 100px; /* Ajuste a altura da imagem em telas menores */
+    }
+
+    .menu-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .cart-section {
+        width: 90%;
+    }
+
+    .order-button {
+        width: 100%;
+        max-width: 300px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu a {
+        font-size: 16px;
+    }
+
+    .banner h1 {
+        font-size: 24px;
+    }
+
+    .banner p {
+        font-size: 16px;
+    }
+
+    .menu-item {
+        padding: 10px;
+        margin: 8px;
+        width: 90%;
+    }
+
+    .cart-section {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .order-button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
 }
