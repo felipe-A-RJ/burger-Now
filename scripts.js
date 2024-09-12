@@ -56,7 +56,7 @@ function updateCartDisplay() {
 
     // Adicionar mensagem sobre taxa de entrega
     const deliveryMessage = document.createElement('p');
-    deliveryMessage.textContent = '*Consulte a taxa de entrega';
+    deliveryMessage.textContent = '*Consulte a taxa de entrega fora da região';
     deliveryMessage.style.fontSize = '12px'; // Opcional: define o tamanho da fonte da mensagem
     deliveryMessage.style.color = 'red'; // Opcional: define a cor da mensagem
     cartTotalContainer.appendChild(deliveryMessage);

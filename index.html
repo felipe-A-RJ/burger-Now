@@ -22,7 +22,8 @@
     <section id="home" class="banner">
         <h1>Bem-vindo ao Burger Now!</h1>
         <p>Os melhores burgers da cidade, direto na sua casa.</p>
-        <button class="click" onclick="orderNow()">Peça Agora</button>
+        <!-- Atualiza o botão para rolar até o cardápio -->
+        <button class="click" onclick="scrollToMenu()">Peça Agora</button>
     </section>
 
     <section id="menu" class="menu-section">
@@ -72,7 +73,6 @@
         <ul id="cart-items"></ul>
         <p id="cart-total">Total: R$ 0,00</p>
         
-        
         <!-- Botão Peça Agora dentro do carrinho -->
         <button class="order-button" onclick="redirectToWhatsApp()">Peça Agora</button>
     </section>
@@ -92,6 +92,13 @@
         <p>&copy; 2024 Burger Now. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Adiciona o script de JavaScript -->
     <script src="scripts.js"></script>
+    <script>
+        // Função para rolar suavemente até o cardápio
+        function scrollToMenu() {
+            document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
